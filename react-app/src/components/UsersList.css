@@ -1,0 +1,19 @@
+.user-card-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.user-card img {
+  height: 200px;
+  border-radius: 20px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align:center;
+}

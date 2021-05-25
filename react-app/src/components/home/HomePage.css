@@ -1,0 +1,43 @@
+ul {
+  display: flex;
+}
+
+.host-event-btn{
+  margin-top: 10px;
+  margin-left: 40px;
+  height: 30px;
+  background-color: white;
+  border-radius: 10px;
+  /* margin-top: 10px; */
+}
+
+.event-filters{
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+select {
+  height: 35px;
+  font-size: large;
+}
+
+.zhu-front-page {
+  height: 550px;
+}
+
+#genre{
+  margin-left: 10px;
+}
+
+#size{
+  margin-left: 10px;
+}
+
+#reset {
+  margin-left: 10px;
+}
+
+.home-page-header {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}

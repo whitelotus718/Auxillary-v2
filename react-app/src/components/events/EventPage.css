@@ -1,0 +1,105 @@
+.bids {
+  display: flex;
+  flex-direction: row;
+}
+
+.bids-imgs {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  justify-items: center;
+
+}
+
+.venue-photo {
+  height: 350px;
+  border-radius: 5%;
+}
+
+.bid-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 50px;
+}
+
+.show-details-btn {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+/* 
+.show-details-btn {
+padding-top: 50px;
+} */
+
+.event-info h4 {
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+.event-page-header {
+  margin-top: 10px;
+}
+
+.event-page-title {
+  margin-top: 10px;
+}
+
+
+.event-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-page-first-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-page-second-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.event-page-title{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.event-music-type{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.show-details-btn-container {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.show-details-btn {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.bids-names {
+  margin-top: 17px;
+  text-align: center;
+}
+
+.bid-btn {
+  margin-top: 15px;
+}
