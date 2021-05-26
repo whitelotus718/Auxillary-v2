@@ -5,7 +5,8 @@ import  createLogger  from 'redux-logger'
 import configureStore from './store'
 import './index.css';
 import App from './App';
-
+import BidPage from './components/events/BidPage'
+import BidReviewPage from './BidReviewPage'
 // const logger = createLogger({
   //empty options
 // });
@@ -17,6 +18,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
+        {/* <BidReviewPage /> */}
+      {/* <BidPage /> */}
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

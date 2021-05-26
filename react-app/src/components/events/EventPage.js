@@ -45,7 +45,6 @@ function EventPage() {
     fetch(`/api/events/${id}`)
     .then(response => response.json())
     .then(data => setEvent(data.event));
-
   }, [])
 
 

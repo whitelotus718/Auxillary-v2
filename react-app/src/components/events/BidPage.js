@@ -1,12 +1,12 @@
 import './BidPage.css'
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams, Link, useHistory} from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux'
 import {updateBid} from '../../store/bid';
+import { useDispatch, useSelector } from 'react-redux'
 
 
 function BidPage() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch()
   // const history = useHistory()
 
   const [bid, setBid] = useState({})
@@ -25,17 +25,17 @@ function BidPage() {
     // history.push(`/events/${eventId}/bids/${bidId}`)
   }
   
-  function handleCancel () {
+  // function handleCancel () {
 
-  }
+  // }
 
   return (
     <>
       <h1>Bid Page</h1>
       <p>{bid.id}</p>
       {bid.artist && <img id="bid-page-bidder-photo" src={bid.artist.profile_photo}></img>}
-      <button onClick={handleAccept}>Accept Bid</button>
-      <button onClick={handleCancel}>Cancel Bid</button>
+      {/* <button onClick={handleAccept}>Accept Bid</button>
+      <button onClick={handleCancel}>Cancel Bid</button> */}
     </>
   )
 }

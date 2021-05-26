@@ -29,7 +29,19 @@ class Bid(db.Model):
                 "email": self.artist.email,
                 "artist_name": self.artist.artist_name,
                 "profile_photo": self.artist.profile_photo,
-                }
+                },
+            "event": {
+                "id": self.event.id,
+                "title": self.event.title,
+                "eventType": self.event.eventType,
+                "venueType": self.event.venueType,
+                "venuePhoto": self.event.venuePhoto,
+                "musicType": self.event.musicType,
+                "address": self.event.address,
+                "size": self.event.size,
+                "price": self.event.price,
+                "description": self.event.description,
+            }
             }
 
     # user = db.relationship('User', back_populates='bids', uselist=False)

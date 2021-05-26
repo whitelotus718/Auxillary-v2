@@ -64,7 +64,7 @@ const Navbar = ({authenticated, setAuthenticated}) => {
             About
           </NavLink>
           <NavLink to='/my-events' activeStyle>
-            My Events
+            My Profile
           </NavLink>
           <NavLink to='/users' activeStyle>
             Users

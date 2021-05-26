@@ -1,0 +1,15 @@
+.event-card-bids-strip{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  justify-items: center;
+}
+
+.bid-central {
+  margin-top: 20px;
+}
+
+.review-bids-btn {
+  /* margin-bottom: 20px;
+  margin-left: 10px; */
+}

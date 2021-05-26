@@ -74,18 +74,15 @@ export const deleteBid = (eventId, bidId) => async dispatch => {
   // dispatch(loadEvents())
 };
 
-const initialState = {
-  // events: [],
-};
 
-export const updateBid = (bidid, isAccepted) => async dispatch => {
+export const updateBid = (bidid) => async dispatch => {
   console.log(bidid);
   const response = await fetch(`/api/bids/${bidid}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({bidid, isAccepted}),
+    body: JSON.stringify({bidid}),
   });
 
   if (response.ok) {
@@ -95,6 +92,10 @@ export const updateBid = (bidid, isAccepted) => async dispatch => {
     // history.push(`/api/events/${event.id}`)
   }
   // dispatch(loadEvents())
+};
+
+const initialState = {
+  // events: [],
 };
 
 const bidReducer = (state = initialState, action) => {

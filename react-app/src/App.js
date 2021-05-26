@@ -16,6 +16,8 @@ import MyEventsPage from "./components/events/MyEventsPage";
 import { authenticate } from "./store/session";
 import HomeContainer from "./components/home/HomePage";
 import BidPage from "./components/events/BidPage"
+import { Provider } from 'react-redux';
+import BidReviewPage from './BidReviewPage'
 
 function App() {
   const dispatch = useDispatch()
@@ -54,14 +56,17 @@ function App() {
         <ProtectedRoute path="/" exact={true}> 
           <HomeContainer />
         </ProtectedRoute>
+        <ProtectedRoute path="/events/:id/bids/:bidid" exact={true}>
+          <BidPage />
+        </ProtectedRoute>
         <ProtectedRoute path="/events/:id" exact={true}>
           <EventPage />
         </ProtectedRoute>
         <ProtectedRoute path="/event-form" exact={true}>
           <CreateEventForm />
         </ProtectedRoute>
-        <ProtectedRoute path="/events/:id/bids/:bidid" exact={true}>
-          <BidPage />
+        <ProtectedRoute path="/events/:id/bid-review" exact={true}>
+          <BidReviewPage />
         </ProtectedRoute>
         {/* <ProtectedRoute path="/my-events" exact={true} >
           <MyEventsPage />

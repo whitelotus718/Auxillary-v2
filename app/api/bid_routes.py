@@ -54,7 +54,7 @@ def patch_bid(bidid):
     if form.validate_on_submit():
         bid = Bid.query.get(bidid)
         if bid:
-            bid.isAccepted = form.data['isAccepted']
+            bid.isAccepted = not bid.isAccepted
             db.session.commit()
             return {"bid": bid.to_dict()}
         else:
