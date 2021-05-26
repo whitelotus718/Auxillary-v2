@@ -97,8 +97,15 @@ function EventPage() {
 
   const onBid = async (e) => {
     e.preventDefault()
+    bids.forEach((bid) => {
+      if (bid.ownerId === user.id) {
+        alert("Hi, you have already bid on this Event!")
+        return
+      } 
+    })
     dispatch(createBid(id))
     dispatch(getBids(id))
+
   }
 
 
@@ -162,29 +169,10 @@ function EventPage() {
       <div className="event-page-second-section">
         <span className="event-music-type"><h2>{event.musicType} ♪</h2></span>
         <div className="bids">        
-          {/* {usersWithBids.map((bidder) => <p>{bidder.artist_name}</p>)} */}
-          {/* {bids.map((bid) => <img className="bids-imgs" src={bidder.profile_photo}></img>)} */}
-          {/* {bids.map((bid) => <p>{bid.author.username}</p>)} */}
-          {/* {event.bids.map((bid) => <img className="bids-imgs" src={bid.profile_photo}></img>)} */}
-          {/* {bids.map((bid) => <p>{bid.id}</p>)} */}
-          {/* {artistsWhoBid.map((artist) => <img src={artist.profile_photo} className="bids-imgs"></img>)} */}
-          {bids.map((bid) => <img src={bid.artist.profile_photo} className="bids-imgs"></img>)}
-          {/* {bids.map((bid) => <p>{bid.artist.username}</p>)} */}
-          {/* {bids.map((bid) => {
-            debugger
-            <img src={bid.user.profile_photo} className="bids-imgs"></img>
-          })} */}
-          {/* {bids.map((bid) => <p>{bid.author.artist_name}</p>)} */}
-          {/* <h1> B r e a k</h1> */}
-          {/* {bid} */}
-          {/* {user.bids.map((bid) => <p>{bid.ownerId}</p>)} */}
-          {/* <h3>{bids[0].id}</h3> */}
-          {/* <p>{event.bids[0].isAccepted + ""}</p> */}
+          {bids.map((bid) => BidCard({bid, event}))}
         </div>
 
         <div className="bids-names">        
-          {/* {usersWithBids.map((bidder) => <Link to={`/users/${bidder.id}`}><p>{bidder.username}</p></Link>)} */}
-          {/* {usersWithBids.map((bidder) => <img className="bids-imgs" src={bidder.profile_photo}></img>)} */}
         </div>
 
         <form className="bid-btn" onSubmit={onBid}>
@@ -193,6 +181,15 @@ function EventPage() {
       </div>
     </div>
   );
+}
+
+function BidCard ({bid, event}) {
+
+  return (
+    <Link to={`/events/${event.id}/bids/${bid.id}`} style={{ textDecoration: 'none' }}>                    
+      <img src={bid.artist.profile_photo} className="bids-imgs"></img>
+    </Link>
+  )
 }
 
 export default EventPage;

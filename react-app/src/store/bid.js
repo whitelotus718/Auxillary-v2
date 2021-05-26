@@ -1,7 +1,7 @@
 const LOAD_BIDS = 'bids/LOAD'
 const ADD_BID = 'bids/ADD'
 const REMOVE_BID = 'bids/REMOVE'
-
+const EDIT_BID = 'bids/EDIT'
 // action objects
 export const loadBids = (bids) => ({
   type: LOAD_BIDS,
@@ -20,6 +20,10 @@ export const removeBid = (eventId, bidId) => ({
   // eventId | dont need it
 });
 
+export const editBid = (bid) => ({
+  type: EDIT_BID,
+  bid  // eventId | dont need it
+});
 
 export const getBids = (id) => async dispatch => {
   const response = await fetch(`/api/events/${id}/bids`);
@@ -74,6 +78,25 @@ const initialState = {
   // events: [],
 };
 
+export const updateBid = (bidid, isAccepted) => async dispatch => {
+  console.log(bidid);
+  const response = await fetch(`/api/bids/${bidid}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({bidid, isAccepted}),
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    const bid = data.bid
+    dispatch(editBid(bid));
+    // history.push(`/api/events/${event.id}`)
+  }
+  // dispatch(loadEvents())
+};
+
 const bidReducer = (state = initialState, action) => {
   switch (action.type) {
       case LOAD_BIDS: 
@@ -83,6 +106,13 @@ const bidReducer = (state = initialState, action) => {
         });
         return allBids
       case ADD_BID: {
+            const newState = {
+              ...state,
+              [action.bid.id]: action.bid
+            };
+            return newState;
+          }
+      case EDIT_BID: {
             const newState = {
               ...state,
               [action.bid.id]: action.bid

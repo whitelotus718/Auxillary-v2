@@ -15,7 +15,7 @@ import CreateEventForm from "./components/NewEventForm";
 import MyEventsPage from "./components/events/MyEventsPage";
 import { authenticate } from "./store/session";
 import HomeContainer from "./components/home/HomePage";
-
+import BidPage from "./components/events/BidPage"
 
 function App() {
   const dispatch = useDispatch()
@@ -59,6 +59,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/event-form" exact={true}>
           <CreateEventForm />
+        </ProtectedRoute>
+        <ProtectedRoute path="/events/:id/bids/:bidid" exact={true}>
+          <BidPage />
         </ProtectedRoute>
         {/* <ProtectedRoute path="/my-events" exact={true} >
           <MyEventsPage />

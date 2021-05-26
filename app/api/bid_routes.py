@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from app.models import Bid, db, user
 from app.forms import BidForm
 from app.forms.bid_form import BidForm
+from app.forms import EditBidForm
 
 bid_routes = Blueprint('bids', __name__)
 
@@ -35,4 +36,29 @@ def post_bid():
         return bid.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+@bid_routes.route('/<int:bidid>', methods=["GET"])
+@login_required
+def get_bid(bidid):
+    print("In the specific bid route")
+    bid = Bid.query.get(bidid)
+    if bid:
+        return {"bid": bid.to_dict()}
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@bid_routes.route('/<int:bidid>', methods=["PATCH"])
+@login_required
+def patch_bid(bidid):
+    form = EditBidForm()
+    if form.validate_on_submit():
+        bid = Bid.query.get(bidid)
+        if bid:
+            bid.isAccepted = form.data['isAccepted']
+            db.session.commit()
+            return {"bid": bid.to_dict()}
+        else:
+            return {"errors": 'Could not find bid with id ${bidid}'}
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
