@@ -72,3 +72,7 @@
   right: 30px;
 }
 
+.searchResult{
+  min-width: 760px;
+  height: auto;
+}

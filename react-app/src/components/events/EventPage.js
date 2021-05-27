@@ -8,6 +8,7 @@ import { refreshUser } from '../../store/session';
 // import { removeEvent } from '../../store/event';
 
 import { useDispatch, useSelector } from 'react-redux'
+import { lighten } from "@material-ui/core";
 
 
 function EventPage() {
@@ -47,7 +48,6 @@ function EventPage() {
     .then(data => setEvent(data.event));
   }, [])
 
-
   // set Users
   useEffect(()=> {
     fetch(`/api/events/${id}`)
@@ -55,91 +55,29 @@ function EventPage() {
     .then(data => setUsers(data.users))
   }, [])
 
-
-  // set Bids
-  // useEffect(()=> {
-  //   fetch(`/api/events/${id}`)
-  //   .then(response => response.json())
-  //   .then(data => setBids(data.bids))
-  // }, [])
-
-
-  // function bidderSetter(bids) {
-  //   bids.forEach((bid) => {
-  //     bidOwnerIds.push(bid.ownerId)
-  //   })
-
-  //   bidOwnerIds.forEach((id) => {
-  //     users.forEach((user) => {
-  //       if (user.id === id) {
-  //         usersWithBids.push(user)
-  //       }
-  //     })
-  //   })  
-
-  // }
-  // bidderSetter(bids)
-
-  console.log(bids, "BIDS!!!!!!", 4)
-
-  const artistsWhoBid = []
-  bids.forEach((bid) => {
-    users.forEach((user) => {
-      if (bid.ownerId === user.id) {
-        artistsWhoBid.push(user)
-      }
-    })
-  })
-
-  console.log(bidOwnerIds, "BID OWNER IDS!!!!!!")
-  console.log(usersWithBids, "USERS WITH BIDS!!!!!!")
-
+  // onBid logic ensures bidders cannot bid twice on the same event. 
   const onBid = async (e) => {
     e.preventDefault()
+    let alreadyBid = false
     bids.forEach((bid) => {
       if (bid.ownerId === user.id) {
         alert("Hi, you have already bid on this Event!")
+        alreadyBid = true
         return
-      } 
+      }
     })
-    dispatch(createBid(id))
-    dispatch(getBids(id))
-
-  }
-
-
+    if (alreadyBid === false) {
+      dispatch(createBid(id))
+      dispatch(getBids(id))  
+    }
+  };
   
-  console.log(event)
-  console.log(bids)
-  console.log(users)
-
-
-
-
-
-
-
-  // const eventDelete = async (e) => {
-  //   const res = await fetch(`/api/events/${id}`, {
-  //     headers: { "Content-Type": "application/json" },
-  //     method: 'DELETE'
-  //   })
-  //   dispatch(refreshUser(user.id))
-  //   dispatch(getEvents())
-  //   history.push('/')
-  // }
-
-  console.log(event, "EVENT OBJ")
-  console.log(event.bids, "EVENT OBJ BIDS")
 
   const handleClick = (e) => {
     e.preventDefault()
     dispatch(deleteEvent(id))
     history.push('/')
   }
-
-  console.log(artistsWhoBid)
-  console.log(bids)
 
   // return statement
   return event && (
@@ -174,9 +112,9 @@ function EventPage() {
         <div className="bids-names">        
         </div>
 
-        <form className="bid-btn" onSubmit={onBid}>
+        {user.artist_name && <form className="bid-btn" onSubmit={onBid}>
           <Button variant="contained" color="primary" type="submit" className="bid-button">B I D</Button>
-        </form>
+        </form>}
       </div>
     </div>
   );

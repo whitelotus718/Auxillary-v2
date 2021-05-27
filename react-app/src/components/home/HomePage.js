@@ -138,47 +138,37 @@ function HomePage() {
 
   return (
     <>
-      {/* <h1>Welcome / to / Auxillary.</h1> */}
       <div className="home-ox-dj">
-        {/* <img src="https://i.ibb.co/GxR5q7x/Landing-Page-Cover-Photo-ox-holding-electric-cord.jpg"></img> */}
         <img className="zhu-front-page" src="https://i.ibb.co/dgSBVnn/Zhu-blue-dune-tour.jpg"></img>
       </div>
       <h1 className="home-page-header">Upcoming Events</h1>
-      <div className="host-event-btn">
-        <Button variant="contained" color="primary" onClick={(e) => {history.push('/event-form')}}>Host Your Own Event</Button>
-      </div>
-      <div className="event-filters">
-        <Select name="price" id="price" value="" displayEmpty onChange={handleChangePrice}>
-          <MenuItem value="" disabled>Price</MenuItem>
-            <MenuItem value="ascending-p">Ascending</MenuItem>
-            <MenuItem value="descending-p">Descending</MenuItem>
-          {/* <option value="" selected>Price</option>
-          <option value="ascending-p">lowest to highest ↑</option>
-          <option value="descending-p">highest to lowest ↓</option> */}
-        </Select>
-        <Select name="size" id="size" value="" displayEmpty onChange={handleChangeSize}>
-          <MenuItem value="" disabled>Size</MenuItem>
-              <MenuItem value="ascending">Ascending</MenuItem>
-              <MenuItem value="descending">Descending</MenuItem>
-          {/* <option value="" selected>Size</option>
-          <option value="ascending">lowest to highest ↑</option>
-          <option value="descending">highest to lowest ↓</option> */}
-        </Select>
-        <Select name="genre" id="genre" value="" displayEmpty onChange={handleChangeGenre}>
-          <MenuItem value="" disabled>Genre</MenuItem>
-              <MenuItem value="Electronic">Electronic</MenuItem>
-              <MenuItem value="House">House</MenuItem>
-              <MenuItem value="Top 100">Top 100</MenuItem>
-              <MenuItem value="Ambient">Ambient</MenuItem>
-          {/* <option value="" selected>Genre</option>
-          <option value="Electronic">Electronic</option>
-          <option value="House">House</option>
-          <option value="Top 100">Top 100</option>
-          <option value="Ambient">Ambient</option> */}
-        </Select>
-        <Button id="reset" variant="contained" color="" onClick={handleReset}>
-          Reset
-        </Button>
+      <div className="upcoming-events-toolbar">
+          <div className="host-event-btn">
+            <Button variant="contained" color="primary" onClick={(e) => {history.push('/event-form')}}>Host Your Own Event</Button>
+          </div>
+          <div className="event-filters">
+            <Select name="price" id="price" value="" displayEmpty onChange={handleChangePrice}>
+              <MenuItem value="" disabled>Price</MenuItem>
+                <MenuItem value="ascending-p">Ascending</MenuItem>
+                <MenuItem value="descending-p">Descending</MenuItem>
+            </Select>
+            <Select name="size" id="size" value="" displayEmpty onChange={handleChangeSize}>
+              <MenuItem value="" disabled>Size</MenuItem>
+                  <MenuItem value="ascending">Ascending</MenuItem>
+                  <MenuItem value="descending">Descending</MenuItem>
+            </Select>
+            <Select name="genre" id="genre" value="" displayEmpty onChange={handleChangeGenre}>
+              <MenuItem value="" disabled>Genre</MenuItem>
+                  <MenuItem value="Electronic">Electronic</MenuItem>
+                  <MenuItem value="House">House</MenuItem>
+                  <MenuItem value="Top 100">Top 100</MenuItem>
+                  <MenuItem value="Ambient">Ambient</MenuItem>
+            </Select>
+            <Button id="reset" variant="contained" color="" onClick={handleReset}>
+              Reset
+            </Button>
+          </div>
+
       </div>
       <div className="event-card-container">
         {eventComponents}

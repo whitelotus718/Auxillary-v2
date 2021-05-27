@@ -46,3 +46,20 @@ select {
   margin-top: 20px;
   margin-bottom: 30px;
 }
+
+.event-card-container {
+  max-width: 100%;
+  height: auto;
+}
+
+/* .upcoming-events-toolbar {
+  display: flex;
+} */
+
+/* .host-event-btn {
+  align-items: center;
+} */
+
+/* .event-filters {
+  display: inline-block;
+} */

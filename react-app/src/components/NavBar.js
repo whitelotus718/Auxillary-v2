@@ -13,6 +13,7 @@ import {
   NavBtn,
   NavBtnLink
 } from './NavbarElements';
+import { useDispatch, useSelector } from 'react-redux'
 
 // const Nav = styled.nav`
 //   height: 60px;
@@ -52,6 +53,11 @@ import {
 // }
 
 const Navbar = ({authenticated, setAuthenticated}) => {
+
+  const user = useSelector(state => {
+    return state.session.user
+  })
+
   return (
     <>
       <Nav>
@@ -63,9 +69,10 @@ const Navbar = ({authenticated, setAuthenticated}) => {
           <NavLink to='/about' activeStyle>
             About
           </NavLink>
-          <NavLink to='/my-events' activeStyle>
+          {user && <NavLink to={`/users/${user.id}`} activeStyle>
             My Profile
           </NavLink>
+          }
           <NavLink to='/users' activeStyle>
             Users
           </NavLink>
