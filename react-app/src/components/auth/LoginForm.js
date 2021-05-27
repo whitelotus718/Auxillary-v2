@@ -5,6 +5,7 @@ import { login } from "../../store/session";
 import ButtonGroup from '@material-ui/core/ButtonGroup'
 import Button from '@material-ui/core/Button'
 import SaveIcon from '@material-ui/icons/Save'
+import Icon from '@material-ui/core/Icon';
 import DeleteIcon from '@material-ui/icons/Delete'
 import TextField from '@material-ui/core/TextField'
 import  { useDispatch, useSelector } from "react-redux";
@@ -25,6 +26,14 @@ const LoginForm = () => {
       setErrors(data.errors);
     }
   };
+
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    const email = 'demo@aa.io'
+    const password = 'password'
+    const data = await dispatch(login(email, password));
+  }
+
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -83,8 +92,10 @@ const LoginForm = () => {
               variant="contained"
               color="secondary"
               size="large"
-              startIcon={<DeleteIcon />}>
-                Cancel
+              // startIcon={<Icon>🌟</Icon>}
+              onClick={demoLogin}
+              >
+               🌟 Demo Login
               </Button>
           </ButtonGroup>
         </div>  
