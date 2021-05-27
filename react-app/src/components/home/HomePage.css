@@ -26,7 +26,8 @@ select {
 }
 
 .zhu-front-page {
-  height: 550px;
+  max-width: 100%;
+  height: auto;
 }
 
 #genre{
