@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import events from './event';
 import bids from './bid';
+import accepted from './accepted'
 
 const rootReducer = combineReducers({
     session,
     events,
-    bids
+    bids,
+    accepted
 });
 
 let enhancer;

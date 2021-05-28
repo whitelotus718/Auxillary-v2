@@ -1,0 +1,19 @@
+.bid-review-artist-pic {
+  height: 200px;
+  border-radius: 50%;
+}
+
+.bid-review-event-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.bid-review-h1{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
+.bid-review-artist-name{
+  margin-bottom: 20px;
+}

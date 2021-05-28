@@ -8,6 +8,7 @@ import EventCard from "./EventCard"
 import Button from '@material-ui/core/Button'
 import {Select, MenuItem} from '@material-ui/core/'
 import './HomePage.css'
+import {createAccepted} from '../../store/accepted'
 
 
 function HomeContainer () {
@@ -35,6 +36,10 @@ function HomePage() {
 
   let events = useSelector(state => Object.values(state.events))
   console.log(events)
+
+
+
+  // events.map((event) => {dispatch(createAccepted(event.id))})
 
   const user = useSelector(state => {
     return state.session.user

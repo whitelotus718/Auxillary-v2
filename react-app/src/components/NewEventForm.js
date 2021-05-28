@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 // import { createEvent } from './store/events';
 import {createEvent} from '../store/event';
 import './NewEventForm.css'
+// import createAccepted from './store/accepted'
 
 
 const CreateEventForm = () => {
@@ -76,6 +77,7 @@ const CreateEventForm = () => {
       // if (!event.errors) {
       //   setAuthenticated(true);
       // }
+      // dispatch(createAccepted(id))
       history.push("/")
     };
   
