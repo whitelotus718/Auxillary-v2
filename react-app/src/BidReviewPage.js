@@ -5,7 +5,8 @@ import {updateAccepted} from './store/accepted'
 import {createAccepted} from './store/accepted'
 import { useDispatch, useSelector } from 'react-redux'
 import './BidReviewPage.css'
-import MediaCard from './components/home/BidCard'
+import MediaCard2 from './components/home/BidCard2'
+import Button from '@material-ui/core/Button';
 
 function BidReviewPage () {
   const dispatch = useDispatch()
@@ -67,15 +68,13 @@ function BidReviewPage () {
 
     return (
       <>
-        {bid.artist && <h1 className="bid-review-artist-name">{bid.artist.artist_name}</h1>}
-        <h1><img className="bid-review-artist-pic" src={bid.artist.profile_photo}></img></h1>
-        <h1>{bid.isAccepted + ""}</h1>
-
-      {!accepted && <h1><button type="button" onClick={handleClick}>Accept Bid</button></h1>}
-
-      {accepted && bid.isAccepted && <h1><button type="button" onClick={handleClick}>Decline Bid</button></h1>}
-      {accepted && !bid.isAccepted && <h1><button type="button" disabled onClick={handleClick}>Decline Bid</button></h1>}
-        <h1>___________</h1>
+            <div className="bid-review-bid-card">
+              <MediaCard2 key={bid.id} bid={bid} accepted={accepted} handleClick={handleClick}/>
+            </div>
+            
+      {/* {!accepted && <div classname="accept-bid-btn"><h1><Button color="primary" variant="contained" type="button" size="medium" onClick={handleClick}>Accept Bid</Button></h1></div>}
+      {accepted && bid.isAccepted && <h1><Button type="button" onClick={handleClick}>Decline Bid</Button></h1>}
+      {accepted && !bid.isAccepted && <h1><Button type="button" disabled onClick={handleClick}>Decline Bid</Button></h1>} */}
       </>
     );
   });

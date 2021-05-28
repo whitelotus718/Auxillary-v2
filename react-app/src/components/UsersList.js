@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink , Link} from "react-router-dom";
 import "./UsersList.css"
+import MediaCard3 from './home/BidCard3'
 
 function UsersList() {
   const [users, setUsers] = useState([]);
@@ -19,7 +20,7 @@ function UsersList() {
         <Link to={`/users/${user.id}`} style={{ textDecoration: 'none' }}>
           <div className="user-card-container">
             <div>
-              <UserCard key={user.id}
+              <MediaCard3 key={user.id}
                 user={user}
               />
             </div>            
@@ -34,7 +35,7 @@ function UsersList() {
 
   return (
     <>
-      <h1>User Profiles</h1>
+      <h1 className="user-profiles-headline">User Profiles</h1>
       <ul>{userComponents}</ul>
     </>
   );
@@ -43,14 +44,14 @@ function UsersList() {
 
 
 
-function UserCard({user}) {
+// function UserCard({user}) {
   
-  return (
-    <div className="user-card">
-      <img src={user.profile_photo}/>
-      <h3>{user.artist_name}</h3>
-    </div>
-  )
-}
+//   return (
+//     <div className="user-card">
+//       <img src={user.profile_photo}/>
+//       <h3>{user.artist_name}</h3>
+//     </div>
+//   )
+// }
 
 export default UsersList;

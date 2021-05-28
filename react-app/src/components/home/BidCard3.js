@@ -8,44 +8,40 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import './BidCard.css'
+import './BidCard3.css'
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    width: 250,
   },
   media: {
-    height: 140,
+    height: 250,
   },
 });
 
-export default function MediaCard({bid}) {
+export default function MediaCard2({user}) {
   const classes = useStyles();
-  console.log(bid.event.venuePhoto)
+
   return (
-    <Link to={`/events/${bid.event.id}`} style={{ textDecoration: 'none' }}>
+    <Link to={`/users/${user.id}`} style={{ textDecoration: 'none' }}>
       <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image={bid.event.venuePhoto}
+            image={user.profile_photo}
             title="Contemplative Reptile"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              {bid.event.title}
+              {user.artist_name && user.artist_name}
+              {!user.artist_name && user.username}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              {bid.event.description}
             </Typography>
           </CardContent>
         </CardActionArea>
         <div className="bid-status-btn">
           <CardActions>
-            <Button size="small" color="primary">
-                {bid.isAccepted && <h4>Accepted!</h4>}
-                {!bid.isAccepted && <h4>Denied! :(</h4>}
-              </Button>
           </CardActions>
         </div>
       </Card>

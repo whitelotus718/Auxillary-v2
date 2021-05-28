@@ -17,3 +17,14 @@
 .bid-review-artist-name{
   margin-bottom: 20px;
 }
+
+.bid-review-bid-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.accept-bid-btn {
+  margin-top: 10px;
+}

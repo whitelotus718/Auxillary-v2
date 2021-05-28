@@ -17,3 +17,8 @@ ul {
 h1 {
   text-align:center;
 }
+
+.user-profiles-headline{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

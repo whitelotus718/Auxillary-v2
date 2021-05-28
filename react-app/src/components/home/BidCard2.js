@@ -8,35 +8,37 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import './BidCard.css'
+import './BidCard2.css'
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    width: 250,
   },
   media: {
-    height: 140,
+    height: 250,
   },
 });
 
-export default function MediaCard({bid}) {
+export default function MediaCard2({bid, accepted, handleClick}) {
   const classes = useStyles();
   console.log(bid.event.venuePhoto)
+
+
   return (
     <Link to={`/events/${bid.event.id}`} style={{ textDecoration: 'none' }}>
       <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image={bid.event.venuePhoto}
+            image={bid.artist.profile_photo}
             title="Contemplative Reptile"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              {bid.event.title}
+              {bid.artist.artist_name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              {bid.event.description}
+              {/* {bid.artist.email} */}
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -46,6 +48,9 @@ export default function MediaCard({bid}) {
                 {bid.isAccepted && <h4>Accepted!</h4>}
                 {!bid.isAccepted && <h4>Denied! :(</h4>}
               </Button>
+              {!accepted && <div classname="accept-bid-btn"><h1><Button color="primary" variant="contained" type="button" size="medium" onClick={handleClick}>Accept Bid</Button></h1></div>}
+              {accepted && bid.isAccepted && <h1><Button type="button" onClick={handleClick}>Decline Bid</Button></h1>}
+              {accepted && !bid.isAccepted && <h1><Button type="button" disabled onClick={handleClick}>Decline Bid</Button></h1>}
           </CardActions>
         </div>
       </Card>

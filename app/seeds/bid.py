@@ -7,20 +7,20 @@ from app.seeds.users import seed_users
 
 def seed_bid(): # (user, event)
 
-    bidOne = Bid(isAccepted=False, ownerId=2, eventId=1)
-    bidTwo = Bid(isAccepted=False, ownerId=3, eventId=1)
-    bidThree = Bid(isAccepted=False, ownerId=4, eventId=1)
-    bidFour = Bid(isAccepted=False, ownerId=5, eventId=1)
+    bidOne = Bid(isAccepted=False, ownerId=3, eventId=1)
+    bidTwo = Bid(isAccepted=False, ownerId=4, eventId=1)
+    bidThree = Bid(isAccepted=False, ownerId=5, eventId=1)
+    bidFour = Bid(isAccepted=False, ownerId=6, eventId=1)
     
-    bidFive = Bid(isAccepted=False, ownerId=2, eventId=2)
-    bidSix = Bid(isAccepted=False, ownerId=3, eventId=2)
-    bidSeven = Bid(isAccepted=False, ownerId=4, eventId=3)
-    bidEight = Bid(isAccepted=False, ownerId=5, eventId=3)
+    bidFive = Bid(isAccepted=False, ownerId=3, eventId=2)
+    bidSix = Bid(isAccepted=False, ownerId=4, eventId=2)
+    bidSeven = Bid(isAccepted=False, ownerId=5, eventId=3)
+    bidEight = Bid(isAccepted=False, ownerId=6, eventId=3)
 
-    bidNine = Bid(isAccepted=False, ownerId=2, eventId=3)
-    bidTen = Bid(isAccepted=False, ownerId=3, eventId=4)
-    bidEleven = Bid(isAccepted=False, ownerId=4, eventId=4)
-    bidTwelve = Bid(isAccepted=False, ownerId=5, eventId=4)
+    bidNine = Bid(isAccepted=False, ownerId=3, eventId=3)
+    bidTen = Bid(isAccepted=False, ownerId=4, eventId=4)
+    bidEleven = Bid(isAccepted=False, ownerId=5, eventId=4)
+    bidTwelve = Bid(isAccepted=False, ownerId=6, eventId=4)
 
 
     allBids = [bidOne, bidTwo, bidThree, bidFour, bidFive, bidSix, bidSeven, bidEight, bidNine, bidTen, bidEleven, bidTwelve]
