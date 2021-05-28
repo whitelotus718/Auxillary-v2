@@ -5,6 +5,7 @@ import {updateAccepted} from './store/accepted'
 import {createAccepted} from './store/accepted'
 import { useDispatch, useSelector } from 'react-redux'
 import './BidReviewPage.css'
+import MediaCard from './components/home/BidCard'
 
 function BidReviewPage () {
   const dispatch = useDispatch()
