@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useHistory, Link} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import "./EventCard2.css"
+import Button from '@material-ui/core/Button'
 
 function EventCard2({
   event,
@@ -19,7 +20,7 @@ function EventCard2({
 
   const history = useHistory();
   const id = event.id
-  
+
   function reviewBids (e) {
     // e.preventdefault()
     history.push(`/events/${id}/bid-review`)
@@ -37,11 +38,11 @@ function EventCard2({
                   {/* <p>{eventType}</p> */}
                   <p>{musicType} ♫</p>
                   <p>{size} guests</p>
-                  <p>____</p>
+                  {/* <p>____</p> */}
                   <div className="bid-central">
                     {bids.map((bid) => BidCard({bid}))}
                   </div>
-                  <button type="button" onClick={reviewBids} className="review-bids-btn">Review Bids</button>
+                  <Button variant="outlined" color="primary" type="button" onClick={reviewBids} className="review-bids-btn">Review Bids</Button>
               </div>
 
               <div className="searchResult__infoBottom">

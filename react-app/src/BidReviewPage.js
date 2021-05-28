@@ -27,6 +27,12 @@ function BidReviewPage () {
   // useEffect(()=> {
   // }, [accepted2, accepted])
 
+  if (accepted) {
+    let accepted2 = accepted[id] 
+  }
+  useEffect(()=> {
+
+  }, [])
 
 
   useEffect(()=> {
@@ -50,7 +56,7 @@ function BidReviewPage () {
       // }
       dispatch(updateBid(bidid))
       dispatch(updateAccepted(id))
-      accepted[id] = !accepted[id] 
+      // accepted[id] = !accepted[id] 
       // history.push(`/events/${id}/bid-review`)
     }
     
