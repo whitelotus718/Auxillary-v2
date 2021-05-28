@@ -29,7 +29,7 @@ const LoginForm = () => {
 
   const demoLogin = async (e) => {
     e.preventDefault();
-    const email = 'demo@aa.io'
+    const email = 'haj@gmail.com'
     const password = 'password'
     const data = await dispatch(login(email, password));
   }
