@@ -19,7 +19,7 @@ function UsersList() {
     return (
         <Link to={`/users/${user.id}`} style={{ textDecoration: 'none' }}>
           <div className="user-card-container">
-            <div>
+            <div className="cell">
               <MediaCard3 key={user.id}
                 user={user}
               />
@@ -36,7 +36,10 @@ function UsersList() {
   return (
     <>
       <h1 className="user-profiles-headline">User Profiles</h1>
-      <ul>{userComponents}</ul>
+      {/* <ul>{userComponents}</ul> */}
+      <div class="grid">
+        {userComponents}
+      </div>
     </>
   );
 }
