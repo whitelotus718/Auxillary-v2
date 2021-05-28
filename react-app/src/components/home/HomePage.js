@@ -36,10 +36,11 @@ function HomePage() {
   let events = useSelector(state => Object.values(state.events))
   console.log(events)
 
-  // price ascending or descending? default is price Ascending.
-  const orderedPrice = () => {
-  }
+  const user = useSelector(state => {
+    return state.session.user
+  })
 
+  // filters for event attributes: Size, Price, Event Type
   if (priceAscending === true) {
     // setSizeAscending(null)
     events = events.sort((a,b) => {
@@ -50,9 +51,6 @@ function HomePage() {
     events = events.sort((a,b) => {
       return b.price - a.price;
     });  
-  }
-
-  const orderedSize = () => {
   }
 
   if (sizeAscending === true) {
@@ -66,9 +64,6 @@ function HomePage() {
       return b.size - a.size;
     });  
   }  
-
-  const filteredGenre = () => {
-  }
 
   if (genre != "") {
     events = events.filter(event => event.musicType === genre)
@@ -143,9 +138,10 @@ function HomePage() {
       </div>
       <h1 className="home-page-header">Upcoming Events</h1>
       <div className="upcoming-events-toolbar">
-          <div className="host-event-btn">
+          {!user.artist_name && <div className="host-event-btn">
             <Button variant="contained" color="primary" onClick={(e) => {history.push('/event-form')}}>Host Your Own Event</Button>
           </div>
+          }
           <div className="event-filters">
             <Select name="price" id="price" value="" displayEmpty onChange={handleChangePrice}>
               <MenuItem value="" disabled>Price</MenuItem>

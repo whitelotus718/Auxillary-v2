@@ -50,8 +50,8 @@ def get_bid(bidid):
 @bid_routes.route('/<int:bidid>', methods=["PATCH"])
 @login_required
 def patch_bid(bidid):
-    form = EditBidForm()
-    if form.validate_on_submit():
+    # form = EditBidForm()
+    # if form.validate_on_submit():
         bid = Bid.query.get(bidid)
         if bid:
             bid.isAccepted = not bid.isAccepted
@@ -59,6 +59,6 @@ def patch_bid(bidid):
             return {"bid": bid.to_dict()}
         else:
             return {"errors": 'Could not find bid with id ${bidid}'}
-    else:
-        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    # else:
+    #     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 

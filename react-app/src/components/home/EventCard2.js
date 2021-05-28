@@ -19,6 +19,7 @@ function EventCard2({
 
   const history = useHistory();
   const id = event.id
+  
   function reviewBids (e) {
     // e.preventdefault()
     history.push(`/events/${id}/bid-review`)
@@ -62,9 +63,9 @@ function EventCard2({
 function BidCard ({bid}) {
 
   return (
-    <Link to={`/bids/${bid.id}`} style={{ textDecoration: 'none' }}>                    
+    // <Link to={`/bids/${bid.id}`} style={{ textDecoration: 'none' }}>                    
       <img src={bid.artist.profile_photo} className="event-card-bids-strip"></img>
-    </Link>
+    // </Link>
   )
 }
 

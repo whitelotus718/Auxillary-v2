@@ -30,19 +30,19 @@ function User() {
   const userEvents = user.events && user.events.map((event) => {
     return (
       // <Link to={`/events/${event.id}`} style={{ textDecoration: 'none' }}>                    
-          <EventCard2 key={event.id}
-          event={event}
-          title={event.title}
-          eventType={event.eventType}
-          venueType={event.venueType}
-          venuePhoto={event.venuePhoto}
-          musicType={event.musicType}
-          address={event.address}
-          size={event.size}
-          price={event.price}
-          description={event.description}
-          bids={event.bids}
-          />
+            <EventCard2 key={event.id}
+                  event={event}
+                  title={event.title}
+                  eventType={event.eventType}
+                  venueType={event.venueType}
+                  venuePhoto={event.venuePhoto}
+                  musicType={event.musicType}
+                  address={event.address}
+                  size={event.size}
+                  price={event.price}
+                  description={event.description}
+                  bids={event.bids}
+                  />
       // </Link>
     );
   });
@@ -51,9 +51,11 @@ function User() {
   const userBids = user.bids && user.bids.map((bid) => {
     return (
       // <Link to={`/events/${event.id}/bids/${bid.id}`} style={{ textDecoration: 'none' }}>                    
-          <MediaCard key={bid.id}
-          bid={bid}
-          />
+      <div className="event-card">
+        <MediaCard key={bid.id}
+                  bid={bid}
+        />
+      </div>
       // </Link>
     );
   });
@@ -63,15 +65,17 @@ function User() {
     <div className="outer-container">
       <ul className="user-container">
         <li className="user-profile-pic">
-          <h3><strong>{user.username}</strong></h3><img src={user.profile_photo}/>
+          <h1 className="user-headline"><strong>{user.username}</strong></h1><img src={user.profile_photo}/>
         </li>
       </ul>
-      <h1>My Events</h1>
-      {userEvents}
-      <h1>My Bids</h1>
-        <div className="user-bids-container">
-        {userBids}
-          </div>
+        {!user.artist_name && <div className="user-events-container">
+          <h1>My Events</h1>
+          {userEvents}
+        </div>}
+        {user.artist_name && <div className="user-bids-container">
+          <h1>My Bids</h1>
+          {userBids}
+        </div>}
     </div>
   );
 }

@@ -15,4 +15,23 @@
 .user-bids-container {
   display: flex;
   align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.event-card {
+  margin-top: 20px;
+}
+
+.user-headline {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.user-events-container {
+  margin-top: 20px;
+}
+
+.user-headline{
+  font-size: 50px;
 }

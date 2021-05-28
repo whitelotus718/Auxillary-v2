@@ -39,15 +39,14 @@ export default function MediaCard({bid}) {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
-          {/* <Button size="small" color="primary">
-            Share
-          </Button> */}
-          <Button size="small" color="primary">
-            {bid.isAccepted && <h4>Accepted!</h4>}
-            {!bid.isAccepted && <h4>Denied! :(</h4>}
-          </Button>
-        </CardActions>
+        <div className="bid-status-btn">
+          <CardActions>
+            <Button size="small" color="primary">
+                {bid.isAccepted && <h4>Accepted!</h4>}
+                {!bid.isAccepted && <h4>Denied! :(</h4>}
+              </Button>
+          </CardActions>
+        </div>
       </Card>
     </Link>
 
