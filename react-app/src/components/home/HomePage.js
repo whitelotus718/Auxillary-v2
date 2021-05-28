@@ -119,7 +119,7 @@ function HomePage() {
       }; 
 
       return (
-          <Link to={`/events/${event.id}`} style={{ textDecoration: 'none' }}>                    
+          <Link to={`/events/${event.id}`} style={{ textDecoration: 'none', color:"black" }}>                    
               <EventCard key={event.id}
               title={event.title}
               eventType={event.eventType}

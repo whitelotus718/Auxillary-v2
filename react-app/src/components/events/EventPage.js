@@ -84,7 +84,9 @@ function EventPage() {
     <div className="event-page-container">
 
       <div className="event-page-first-section">
-        <Button variant="contained" color="secondary" onClick={handleClick}>Delete</Button>
+        <div className="event-delete-btn">
+          <Button variant="contained" color="secondary" onClick={handleClick}>Delete</Button>
+        </div>
         <h1 className="event-page-title">{event.title}</h1>
         <img className="venue-photo" src={event.venuePhoto}></img>
 
@@ -125,6 +127,7 @@ function BidCard ({bid, event}) {
   return (
     <Link to={`/events/${event.id}/bids/${bid.id}`} style={{ textDecoration: 'none' }}>                    
       <img src={bid.artist.profile_photo} className="bids-imgs"></img>
+      {bid.isAccepted && <h1>🥳</h1>}
     </Link>
   )
 }

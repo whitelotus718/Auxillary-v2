@@ -15,34 +15,35 @@ function BidReviewPage () {
   // const [accepted2, setAccepted2] = useState(false)
 
 
-  let accepted = useSelector(state => {
-    return state.accepted
-  })
+  // let accepted = useSelector(state => {
+  //   return state.accepted
+  // })
   // const yep = useSelector(state => state.accepted);
-  console.log(id)
-  console.log(accepted[id])
-  // const [accepted, setAccepted] = useState(accepted)
+  // console.log(id)
+  // console.log(accepted[id])
 
-
-  // useEffect(()=> {
-  // }, [accepted2, accepted])
-
-  if (accepted) {
-    let accepted2 = accepted[id] 
-  }
-  useEffect(()=> {
-
-  }, [])
-
+  let [accepted, setAccepted] = useState(false)
 
   useEffect(()=> {
     fetch(`/api/events/${id}`)
     .then(response => response.json())
     .then(data => setEvent(data.event));
-  }, [])
+  }, [accepted])
 
   const bids = event.bids
   console.log(bids)
+
+
+
+  {bids && bids.map((bid) => {
+    if (bid.isAccepted === true) {
+      accepted = true
+    }
+  })}
+
+
+  
+
 
   
   const allBids = bids && bids.map((bid) => {
@@ -50,7 +51,7 @@ function BidReviewPage () {
     function handleClick() {
       const bidid = bid.id
       console.log(bidid)
-      // setAccepted2(!accepted2)
+      setAccepted(!accepted)
       // if (accepted != undefined) {
       //   accepted = !accepted
       // }
@@ -69,26 +70,24 @@ function BidReviewPage () {
         <h1><img className="bid-review-artist-pic" src={bid.artist.profile_photo}></img></h1>
         <h1>{bid.isAccepted + ""}</h1>
 
-      {!accepted[id] && <h1><button type="button" onClick={handleClick}>Accept Bid</button></h1>}
+      {!accepted && <h1><button type="button" onClick={handleClick}>Accept Bid</button></h1>}
 
-      {accepted[id] && bid.isAccepted && <h1><button type="button" onClick={handleClick}>Decline Bid</button></h1>}
-      {accepted[id] && !bid.isAccepted && <h1><button type="button" disabled onClick={handleClick}>Decline Bid</button></h1>}
+      {accepted && bid.isAccepted && <h1><button type="button" onClick={handleClick}>Decline Bid</button></h1>}
+      {accepted && !bid.isAccepted && <h1><button type="button" disabled onClick={handleClick}>Decline Bid</button></h1>}
         <h1>___________</h1>
       </>
     );
   });
   
   return (
-    // <Link to={`/bids/${bid.id}`} style={{ textDecoration: 'none' }}>                    
-      // <img src={bid.artist.profile_photo} className="event-card-bids-strip"></img>
-    // </Link>
     <>
-      <img className="bid-review-event-img" src={event.venuePhoto}></img>
-      {/* <h2>{event.title}</h2>
-      <h2>{event.description}</h2> */}
-      <h1 className="bid-review-h1" >Bid Review</h1>
-      {allBids}
+      <Link to={`/events/${id}/`} style={{ textDecoration: 'none' }}>     
+          <img className="bid-review-event-img" src={event.venuePhoto}></img>
+        </Link>
+        <h1 className="bid-review-h1" >Bid Review</h1>
+        {allBids}
     </>
+      
     )
 }
 

@@ -28,9 +28,8 @@ function EventCard({
                   <p>{address}</p>
                   <p>{eventType}</p>
                   <p>{musicType} ♫</p>
-                  <p>____</p>
-                  <p> </p>
-                  <h4>{size} guests</h4>
+                  <p className="divider">____</p>
+                  <h3 className="guest-count">👤 {size}</h3>
               </div>
 
               <div className="searchResult__infoBottom">
